@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="Eduardo" id="20190228-1">
+        <createTable tableName="users">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="ds_name" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+            <column name="ds_lastname" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="age" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="Autoincrementable">
+        <addAutoIncrement columnDataType="int"
+            columnName="id"
+            schemaName="public"
+            tableName="users"/>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190307-3">
+        <createTable tableName="login">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="ds_username" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+            <column name="ds_password" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="Autoincrementable2">
+        <addAutoIncrement columnDataType="int"
+            columnName="id"
+            schemaName="public"
+            tableName="login"/>
+    </changeSet>
+
+</databaseChangeLog> 

@@ -31,17 +31,22 @@ public class RequestValidatorAspect {
             ErrorTO errorTO = new ErrorTO();
             if(e instanceof NoSuchElementException){
                 errorTO.setErrorCode((long) 1);
-                errorTO.setErrorMessage("Error 1: Prueba PUT de UpdateUser");
+                errorTO.setErrorMessage("Error 1: Error al Intentar encontrar Dato");
+                //return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            else if(e instanceof NullPointerException){
+                errorTO.setErrorCode((long) 2);
+                errorTO.setErrorMessage("Error 2: Error Dato Nulo");
             }
             else{
-                errorTO.setErrorCode((long) 2);
-                errorTO.setErrorMessage("Error 2: Prueba PUT de UpdateUser");
+                errorTO.setErrorCode((long) 3);
+                errorTO.setErrorMessage("Error 3: Error en la Base de Datos");
             }
             LOG.info("Exception Ocurred");
             LOG.info("Execution: {}", joinPoint.getSignature());
             LOG.info("Exception: {}", e.getMessage());
             LOG.info("++++++++++++++++++");
-            LOG.info(e.getMessage());
+            LOG.info(e.toString());
             return new ResponseEntity<>(errorTO, HttpStatus.OK);
             //throw new BusinessException("Error", e);
         }

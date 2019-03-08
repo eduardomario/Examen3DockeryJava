@@ -21,6 +21,8 @@ public class becaServiceImpl implements IbecaService {
 
     @Autowired
     UserDAO userDAO;
+
+    @Autowired
     LoginDAO loginDAO;
 
     @Autowired
@@ -70,8 +72,8 @@ public class becaServiceImpl implements IbecaService {
 
     @Override
     public void updateUser(UserDO userDO) {
-
-        this.userDAO.save(this.userDAO.findById(userDO.getId()).get());
+        this.userDAO.findById(userDO.getId());
+        this.userDAO.save(userDO);
     }
 //--------------------------------------------------------------------------
 // LOGIN
@@ -93,6 +95,7 @@ public class becaServiceImpl implements IbecaService {
 
     @Override
     public void updateLogin(LoginDO loginDO) {
-        this.loginDAO.save(this.loginDAO.findById(loginDO.getId()).get());
+        this.loginDAO.findById(loginDO.getId());
+        this.loginDAO.save(loginDO);
     }
 }

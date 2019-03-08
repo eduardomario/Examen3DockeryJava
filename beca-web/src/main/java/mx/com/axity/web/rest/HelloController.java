@@ -42,14 +42,14 @@ public class HelloController {
         public ResponseEntity<UserTO> saveUser(@RequestBody UserTO userTO) {
             LOG.info("Se invoca /setUsers");
             this.IbecaFacade.saveUser(userTO);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/deleteUsers", method = RequestMethod.DELETE, produces = "application/json")
     public ResponseEntity<UserTO> deleteUser(@RequestParam Long id) {
         LOG.info("Se invoca /deleteUsers");
         this.IbecaFacade.deleteUser(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/findUsers", method = RequestMethod.GET, produces = "application/json")
@@ -73,14 +73,14 @@ public class HelloController {
     public ResponseEntity<LoginTO> saveLogin(@RequestBody LoginTO loginTO) {
         LOG.info("Se invoca /setLogin");
         this.IbecaFacade.saveLogin(loginTO);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/deleteLogin", method = RequestMethod.DELETE, produces = "application/json")
     public ResponseEntity<LoginTO> deleteLogin(@RequestParam Long id) {
         LOG.info("Se invoca /deleteLogin");
         this.IbecaFacade.deleteLogin(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/findLogin", method = RequestMethod.GET, produces = "application/json")

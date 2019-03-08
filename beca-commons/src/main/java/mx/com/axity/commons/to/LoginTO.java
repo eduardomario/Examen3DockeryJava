@@ -16,19 +16,19 @@ public class LoginTO implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setName(String name) {
-        this.username = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getLastName() {
+    public String getPassword() {
         return password;
     }
 
-    public void setLastName(String lastName) {
-        this.password = lastName;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

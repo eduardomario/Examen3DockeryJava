@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface LoginDAO extends CrudRepository<LoginDO, Long> {
 
-    List<LoginDO> findByLastName(String lastName);
+    List<LoginDO> findByUsername(String username);
 }
